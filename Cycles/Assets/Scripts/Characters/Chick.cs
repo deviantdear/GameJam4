@@ -56,7 +56,7 @@ public class Chick : MonoBehaviour
         RaycastHit hit;
 
         //finds mouse click and filters to layer desired
-        if (Physics.Raycast(ray, out hit, 100, movementMask))
+        if (Physics.Raycast(ray, out hit, 100))
         {
             Debug.Log("Object hit=" + hit.collider.name + " " + hit.point);
 
