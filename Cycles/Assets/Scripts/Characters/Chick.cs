@@ -58,7 +58,9 @@ public class Chick : MonoBehaviour
         //finds mouse click and filters to layer desired
         if (Physics.Raycast(ray, out hit, 100, movementMask))
         {
-            //Check to see if you can interact
+            Debug.Log("Object hit=" + hit.collider.name + " " + hit.point);
+
+           //Check to see if you can interact
            Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             //set as focus

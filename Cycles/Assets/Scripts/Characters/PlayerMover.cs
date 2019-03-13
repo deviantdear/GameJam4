@@ -17,7 +17,10 @@ public class PlayerMover : MonoBehaviour
 
     void Update()
     {
-        
+        if (target != null)
+        {
+            agent.SetDestination(target.position);
+        }
     }
 
     public void MoveToPoint(Vector3 point)
@@ -35,12 +38,4 @@ public class PlayerMover : MonoBehaviour
         target = null;
     }
 
-    IEnumerator checkDistance()
-    {
-        if (target != null)
-        {
-            agent.SetDestination(target.position);
-        }
-        yield return new WaitForSeconds(.1f);
-    }
 }
