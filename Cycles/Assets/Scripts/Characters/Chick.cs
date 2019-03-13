@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMover))]
 public class Chick : MonoBehaviour
 {
+    public Interactable focus;
+
     //Layermask prevents us from targeting objects we don't mean to when moving
     public LayerMask movementMask;
 
@@ -27,7 +29,7 @@ public class Chick : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            FocusOnObject();
+            isInteractable();
         }
     }
 
@@ -43,12 +45,12 @@ public class Chick : MonoBehaviour
             //Moving player to mouse click location
             mover.MoveToPoint(hit.point);
 
-            //Stop focusing any objects
+            removeFocus();
 
         }
     }
 
-    void FocusOnObject()
+    void isInteractable()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -57,8 +59,27 @@ public class Chick : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100, movementMask))
         {
             //Check to see if you can interact
-            //set as focus
+           Interactable interactable = hit.collider.GetComponent<Interactable>();
 
+            //set as focus
+            if (interactable != null)
+            {
+                SetFocus(interactable);
+            }
         }
     }
+
+    void SetFocus(Interactable newFocus)
+    {
+        focus = newFocus;
+        mover.FollowTarget(newFocus);
+
+    }
+
+    void removeFocus()
+    {
+        focus = null;
+        mover.stopFollowing();
+    }
+
 }

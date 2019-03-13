@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public Transform player;
+    public float radius = 3f;
 
     public virtual void Interact()
     {
@@ -17,6 +17,12 @@ public class Interactable : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 
 }
