@@ -8,6 +8,7 @@ public class PlayerMover : MonoBehaviour
 {
     Transform target;
     NavMeshAgent agent;
+    private float rotSpeed = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PlayerMover : MonoBehaviour
         if (target != null)
         {
             agent.SetDestination(target.position);
+            FaceTarget();
         }
     }
 
@@ -30,12 +32,25 @@ public class PlayerMover : MonoBehaviour
 
     public void FollowTarget(Interactable newTarget)
     {
-        target = newTarget.transform;
+        agent.stoppingDistance = newTarget.radius *.8f; //stops before entering target
+        agent.updateRotation = false;
+
+        target = newTarget.interactionTransform;
     }
 
     public void stopFollowing()
     {
+        agent.stoppingDistance = 0f;
+        agent.updateRotation = true;
         target = null;
+    }
+
+    public void FaceTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z)); //prevents player from looking up and down
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotSpeed);
+
     }
 
 }
