@@ -56,7 +56,7 @@ public class Chick : MonoBehaviour
         RaycastHit hit;
 
         //finds mouse click and filters to layer desired
-        if (Physics.Raycast(ray, out hit, 100, movementMask))
+        if (Physics.Raycast(ray, out hit, 100))
         {
             Debug.Log("Object hit=" + hit.collider.name + " " + hit.point);
 
@@ -73,13 +73,22 @@ public class Chick : MonoBehaviour
 
     void SetFocus(Interactable newFocus)
     {
-        focus = newFocus;
-        mover.FollowTarget(newFocus);
+        if(newFocus != focus)
+        {
+            if(focus != null)
+                focus.OnDefocused();
 
+            focus = newFocus;
+            mover.FollowTarget(newFocus);
+        }    
+        newFocus.OnFocused(transform); //Sends players transform to Interactable
     }
 
     void removeFocus()
     {
+        if (focus != null)
+            focus.OnDefocused();
+
         focus = null;
         mover.stopFollowing();
     }
