@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMover))]
@@ -23,6 +22,9 @@ public class Chick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject()) //Pauses game when player pointer is hovering over UI elements
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             TravelToPoint();
