@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Attack PU", menuName = "Inventory/Equipment")]
-public class AttackModifier : Item
+public class AttackModifier : Item //Inherits from Item
 {
-    public int equipSlot = 0;
-    public int damageModifier;
-    public int armorModifier;
+    public int equipSlot = 0; //UI slot filled
+    public SkinnedMeshRenderer mesh;
+
+    public int damageModifier; //damage the attack will add to player
+    public int armorModifier; //armor for player
 
     public override void Use()
     {

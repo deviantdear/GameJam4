@@ -18,16 +18,16 @@ public class AttackManager : MonoBehaviour
     public delegate void OnAttackChanged(AttackModifier newAttack, AttackModifier defaultAttack);
     public OnAttackChanged onAttackChanged;
 
-    public int numAttacks;
+    public int numAttacks; //number of different attacks available
 
     public void Start()
     {
-        currentAttack = new AttackModifier[numAttacks];
+        currentAttack = new AttackModifier[numAttacks]; //instantiates attacks
     }
 
     public void Equip (AttackModifier newAttack)
     {
-        int slotIndex = newAttack.equipSlot;
+        int slotIndex = newAttack.equipSlot; //places attack in first slot in in-game ui
 
         AttackModifier defaultAttack = null;
 
