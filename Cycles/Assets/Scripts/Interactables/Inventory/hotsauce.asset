@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd933b53c84fa514c8dfbb3869764fc4, type: 3}
-  m_Name: acorn
+  m_Name: hotsauce
   m_EditorClassIdentifier: 
-  name: acorn
-  icon: {fileID: 0}
+  name: hot sauce
+  icon: {fileID: 21300000, guid: 9534fef0051cd8343833227774a33f64, type: 3}
   isDefaultItem: 0
