@@ -2,17 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+[RequireComponent (typeof(CharacterStats))]
+public class Enemy : Interactable
 {
-    // Start is called before the first frame update
+    PlayerManager playerManager; //References player
+    CharacterStats myStats; //References Enemy Stats
+     
     void Start()
     {
-        
+        playerManager = PlayerManager.instance; //uses the singleton instance to reference the player manager
+        myStats = GetComponent<CharacterStats>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact()
     {
-        
+        base.Interact();
+
+        Combat playerCombat = playerManager.player.GetComponent<Combat>(); //Attack enemy
+        if(playerCombat != null)
+        {
+            playerCombat.Attack(myStats); //Gets reference to damage modifier to attack 
+        }
     }
+
 }

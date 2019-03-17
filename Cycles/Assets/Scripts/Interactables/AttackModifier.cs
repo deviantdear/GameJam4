@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Attack PU", menuName = "Inventory/Equipment")]
+[CreateAssetMenu(fileName = "New Attack PU", menuName = "AttackMod")]
 public class AttackModifier : Item //Inherits from Item
 {
     public int equipSlot = 0; //UI slot filled
