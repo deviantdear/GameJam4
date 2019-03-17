@@ -8,11 +8,13 @@ public class SkyBoxScript : MonoBehaviour
     public Material SkyTwo;
     public int level3XP = 500;
     public int playerXP;
+    public Light lt;
 
     // Start is called before the first frame update
     void Start()
     {
-        RenderSettings.skybox = SkyOne; 
+        RenderSettings.skybox = SkyOne;
+        lt = GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class SkyBoxScript : MonoBehaviour
         if (level3XP==playerXP || Input.GetKeyDown(KeyCode.Space))
         {
             RenderSettings.skybox = SkyTwo;
+            lt.color -= (Color.red / 2.0f) * Time.deltaTime;
         }
 
     }
