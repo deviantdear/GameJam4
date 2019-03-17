@@ -10,9 +10,19 @@ public class PlayerStats : CharacterStats
         AttackManager.instance.onAttackChanged += onAttackChanged;
     }
 
-    void OnAttackChanged(AttackModifier newAttack, AttackModifier oldAttack)
+    void onAttackChanged(AttackModifier newAttack, AttackModifier defaultAttack)
     {
+        if (newAttack != null)
+        {
+            armor.AddModifier(newAttack.armorModifier);
+            damage.AddModifier(newAttack.damageModifier);
+        }
 
+        if (defaultAttack != null)
+        {
+            armor.RemoveModifier(defaultAttack.armorModifier);
+            damage.RemoveModifier(defaultAttack.damageModifier);
+        }
     }
 
     // Update is called once per frame
