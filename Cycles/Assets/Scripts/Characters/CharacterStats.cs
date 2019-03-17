@@ -4,6 +4,7 @@ public class CharacterStats : MonoBehaviour
 {
     public int maxhealth = 100;
     public int currentHealth { get; private set; } //any class can get the value only change it in this class
+    public int xp;
 
     public Stat damage;
     public Stat armor;

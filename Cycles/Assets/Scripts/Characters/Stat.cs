@@ -6,7 +6,7 @@ using UnityEngine;
 public class Stat
 {
     [SerializeField]
-    private int baseValue; //Starting value
+    public int baseValue; //Starting value
 
     //List of modifiers that change the baseValue
     private List<int> modifiers = new List<int>();
@@ -33,10 +33,7 @@ public class Stat
     {
         if(modifier != 0)
         {
-            if(modifier != 0)
-            {
-                modifiers.Remove(modifier);
-            }
+            modifiers.Remove(modifier);
         }
     }
 

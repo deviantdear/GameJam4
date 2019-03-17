@@ -9,12 +9,13 @@ public class EnemyController : MonoBehaviour
 
     Transform target;
     NavMeshAgent agent; //Allows us to use AI 
+    Combat enemyCombat;
 
     // Start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform; //Creates reference to the players location
-
+        enemyCombat = GetComponent<Combat>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -30,6 +31,11 @@ public class EnemyController : MonoBehaviour
             if(distance <= agent.stoppingDistance)
             {
                 //Attack
+                CharacterStats targetStats = target.GetComponent<CharacterStats>();
+                if (targetStats != null)
+                {
+                    enemyCombat.Attack(targetStats);
+                }
                 FaceTarget(); //Face Target
             }
         }
