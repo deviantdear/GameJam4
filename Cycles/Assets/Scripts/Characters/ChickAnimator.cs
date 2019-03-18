@@ -3,24 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChickAnimator : MonoBehaviour
+public class ChickAnimator : CharacterAnimator
 {
-    const float animSmoothTime = .1f;
-    NavMeshAgent agent;
-    Animator animator;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
-    }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        float speedPercent = agent.velocity.magnitude / agent.speed;
-       // animator.SetFloat("moveSpeed", speedPercent, animSmoothTime, Time.deltaTime);
+        base.Update();
+
         if(agent.hasPath)
         {
             animator.SetBool("IsWalk", true);

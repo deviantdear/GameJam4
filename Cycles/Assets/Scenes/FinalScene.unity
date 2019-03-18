@@ -861,7 +861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913353921665142, guid: 5701a584e276bba438e4a5f5f02780a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4913353921665142, guid: 5701a584e276bba438e4a5f5f02780a4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2702,6 +2702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxhealth: 100
+  xp: 0
   damage:
     baseValue: 5
   armor:
@@ -3314,8 +3315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxhealth: 100
+  xp: 0
   damage:
-    baseValue: 10
+    baseValue: 5
   armor:
     baseValue: 3
 --- !u!114 &2128891061
@@ -3393,6 +3395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxhealth: 100
+  xp: 0
   damage:
     baseValue: 10
   armor:
@@ -3545,5 +3548,10 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4411086311603284851, guid: 6031ab32b27cdce4ab94616935e036be,
+        type: 3}
+      propertyPath: repalceableAttackAnim
+      value: 
+      objectReference: {fileID: 7400022, guid: be23cb0f34231184c97a3f29851e798e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6031ab32b27cdce4ab94616935e036be, type: 3}
