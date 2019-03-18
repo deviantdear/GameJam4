@@ -2864,7 +2864,7 @@ MonoBehaviour:
   damage:
     baseValue: 5
   armor:
-    baseValue: 0
+    baseValue: 5
 --- !u!4 &1581834470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4411086311603284852, guid: 6031ab32b27cdce4ab94616935e036be,
@@ -3557,7 +3557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c931d7b2f5ee24886850bc8bce8c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 10
+  attackSpeed: 0.7
 --- !u!114 &2128891065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3573,7 +3573,7 @@ MonoBehaviour:
   maxhealth: 100
   xp: 20
   damage:
-    baseValue: 1
+    baseValue: 5
   armor:
     baseValue: 2
 --- !u!114 &2128891067

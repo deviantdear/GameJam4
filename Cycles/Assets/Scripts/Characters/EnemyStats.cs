@@ -9,7 +9,7 @@ public class EnemyStats : CharacterStats
         base.Die();
 
         //Death Animation
-
+        
         Destroy(gameObject);
     }
 }
