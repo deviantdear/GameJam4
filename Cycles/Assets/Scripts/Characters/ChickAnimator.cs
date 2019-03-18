@@ -15,14 +15,14 @@ public class ChickAnimator : CharacterAnimator
         {
             animator.SetBool("IsWalk", true);
             animator.SetBool("IsIdle", false);
-            animator.SetBool("IsEat", false);
+            animator.SetBool("IsAttack", false);
             animator.SetBool("IsSleep", false);
             animator.SetBool("IsSit", false);
         }
         else
         {
             animator.SetBool("IsIdle", true);
-            animator.SetBool("IsEat", false);
+            animator.SetBool("IsAttack", false);
             animator.SetBool("IsWalk", false);
             animator.SetBool("IsSleep", false);
             animator.SetBool("IsSit", false);

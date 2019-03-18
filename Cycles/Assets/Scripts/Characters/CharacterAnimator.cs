@@ -23,6 +23,7 @@ public class CharacterAnimator : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         charCombat = GetComponent<Combat>();
+        charCombat.OnAttack += OnAttack; //Subscribes it to OnAttack Delegate
 
         overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController); //Allows us to swap out clips for other clips
         animator.runtimeAnimatorController = overrideController;
@@ -43,7 +44,7 @@ public class CharacterAnimator : MonoBehaviour
 
     protected virtual void OnAttack()
     {
-        animator.SetTrigger("attack");
+        animator.SetTrigger("IsAttack");
         int attackIndex = Random.Range(0, currentAttackAnimSet.Length);
         overrideController[repalceableAttackAnim.name] = currentAttackAnimSet[attackIndex];
     }

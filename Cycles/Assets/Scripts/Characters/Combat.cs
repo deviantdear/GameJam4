@@ -12,9 +12,7 @@ public class Combat : MonoBehaviour
     float lastAttackTime;
 
     private float animDelay = .6f;
-
     public bool InCombat { get; private set; }
-     
     public event System.Action OnAttack; //Creates a Delegate to Manage our events
 
     private void Start()
