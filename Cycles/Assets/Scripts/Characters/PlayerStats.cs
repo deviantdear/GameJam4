@@ -25,9 +25,12 @@ public class PlayerStats : CharacterStats
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Die()
     {
-        
+        base.Die();
+        //Kill Player
+        //Play Death Animation
+        //Restart Scene 
+        PlayerManager.instance.KillPlayer();
     }
 }
