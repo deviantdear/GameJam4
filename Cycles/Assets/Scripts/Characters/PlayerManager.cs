@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject player;
     public CharacterStats charStats;
+    private int xpPM;
+    public TextMeshProUGUI xpUI;
 
     void Start()
     {
@@ -26,7 +29,8 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        
+        xpPM = charStats.xp;
+        xpUI.SetText("XP: " + xpPM);
     }
 
     public void KillPlayer()
