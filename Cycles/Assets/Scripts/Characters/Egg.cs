@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Egg : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class Egg : MonoBehaviour
 
     //UI
     private int count;
-    private float bonus;
 
     //Jump
     private float cooldownTime = 2;
@@ -18,8 +18,10 @@ public class Egg : MonoBehaviour
     public float jumpPower;
 
     //Sounds
-    public AudioClip eggSound;
-
+    public AudioClip chirpSound;
+    public AudioClip crackSound;
+    public AudioClip crackSound2;
+    public AudioClip crackSound3;
     #endregion
 
     void Start()
@@ -51,11 +53,16 @@ public class Egg : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            //Sound Effect
-            this.GetComponent<AudioSource>().PlayOneShot(eggSound);
-            Debug.Log("Freeeeedoom");
-
+            count++;
+            AudioManager.instance.RandomizeSfx(crackSound, crackSound2, crackSound3);
         }
-
+        if( count > 6) { 
+            //Sound Effect
+            
+            Debug.Log("Freeeeedoom");
+            AudioManager.instance.RandomizeSfx(chirpSound);
+            SceneManager.LoadScene("FinalScene");
+        }
     }
+    
 }

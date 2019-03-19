@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/FinalScene with UI.unity
-    guid: 4c9c87c578e39ac4c9c6778790f6d986
+    path: Assets/Scenes/ChickenCoop.unity
+    guid: cefcdc8deb09b044184b94d9db4bd706
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: f5186dc1222335e41bd5c9ef52df6f96
   m_configObjects: {}
