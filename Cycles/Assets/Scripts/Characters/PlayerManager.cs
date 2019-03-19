@@ -18,6 +18,10 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     public GameObject player;
+    public GameObject chick;
+    public GameObject chicken;
+    public GameObject axes;
+    public GameObject egg;
     public CharacterStats charStats;
     private int xpPM;
     public TextMeshProUGUI xpUI;
@@ -31,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     {
         xpPM = charStats.xp;
         xpUI.SetText("XP: " + xpPM);
+        LevelUp();
     }
 
     public void KillPlayer()
@@ -40,6 +45,21 @@ public class PlayerManager : MonoBehaviour
 
     public void LevelUp()
     {
-        
+        if(xpPM >= 100)
+        {
+            chick.SetActive(false);
+            chicken.SetActive(true);    
+        }
+        else if(xpPM >= 500)
+        {
+            axes.SetActive(true);
+        }
+        else if(xpPM >= 750) //Win Condition
+        {
+            //death animation
+            Instantiate(egg, chicken.transform);
+            chicken.SetActive(false);
+
+        }
     }
 }

@@ -8,11 +8,6 @@ public class ItemPickup : Interactable
     {
         base.Interact();
         PickUp();
-        //Play Sound
-        //heal Player
-        PlayerManager.instance.charStats.Heal(healthGained); //references character stats in the Playermanager Health
-        PlayerManager.instance.charStats.gainXP(xpGained); //references character stats in the Playermanager XP
-
     }
 
     void PickUp()
@@ -21,7 +16,11 @@ public class ItemPickup : Interactable
         //Add item to inventory or update UI, XP etc.
         bool wasPickedUp = Inventory.instance.Add(item);
         if (wasPickedUp)
-        {
+        {        
+            //Play Sound
+            //heal Player
+            PlayerManager.instance.charStats.Heal(healthGained); //references character stats in the Playermanager Health
+            PlayerManager.instance.charStats.gainXP(xpGained); //references character stats in the Playermanager XP
             Destroy(gameObject);
         }
     }
