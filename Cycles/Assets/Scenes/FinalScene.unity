@@ -2585,12 +2585,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 224578603}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &225696022 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1917468586814384, guid: 2e23b6dcdb69e41e9b53f0850d904d36,
-    type: 3}
-  m_PrefabInstance: {fileID: 1499243230}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &225696023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4200330878792296, guid: 2e23b6dcdb69e41e9b53f0850d904d36,
@@ -3758,6 +3752,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 245191202050321409424466409a4448, type: 3}
+--- !u!1 &320198825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 106960, guid: 245191202050321409424466409a4448,
+    type: 3}
+  m_PrefabInstance: {fileID: 320198824}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &321002017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6999,7 +6999,7 @@ MonoBehaviour:
   player: {fileID: 1581834464}
   chick: {fileID: 1890915762}
   chicken: {fileID: 1515110513}
-  axes: {fileID: 225696022}
+  axes: {fileID: 320198825}
   egg: {fileID: 100000, guid: 214315961896cb246a09ddccf67044d7, type: 3}
   charStats: {fileID: 1581834466}
   xpUI: {fileID: 663701130}
@@ -19495,15 +19495,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4411086311199045777, guid: 6031ab32b27cdce4ab94616935e036be,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4411086311603284855, guid: 6031ab32b27cdce4ab94616935e036be,
         type: 3}
       propertyPath: m_StoppingDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4411086311199045777, guid: 6031ab32b27cdce4ab94616935e036be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4411086311603284851, guid: 6031ab32b27cdce4ab94616935e036be,
         type: 3}

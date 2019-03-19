@@ -12,6 +12,7 @@ public class Enemy : Interactable
     {
         playerManager = PlayerManager.instance; //uses the singleton instance to reference the player manager
         myStats = GetComponent<CharacterStats>();
+        xpGained = 100;
     }
 
     public override void Interact()
