@@ -7,40 +7,42 @@ public class PickUpSpawner : MonoBehaviour
     public List<Transform> prefabToSpawn;
     private int pick;
     public int numPrefabs;
+    protected float xoffset;
+    protected float zoffset;
+    protected float ypos;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        SpawnLevel1();
-        SpawnLevel2();
+        SetValues();
+        SpawnLevel(7,7, xoffset, zoffset,ypos);
+        //2nd wave values
+        xoffset = 0f;
+        zoffset = 0f;
+        SpawnLevel(7,7, xoffset, zoffset, ypos);
     }
 
-    void SpawnLevel1()
+    protected virtual void SpawnLevel(float _xdistance, float _zdistance, float _xoffset, float zoffset, float ypos)
     {
+        float xdistanceBetween = _xdistance;
+        float zdistanceBetween = _zdistance;
         for (int i = 0; i < numPrefabs; i++)
         {
             for (int j = 0; j < numPrefabs; j++)
             {
-                float xpos = transform.position.x + i * 5;
-                float zpos = transform.position.z + j * 5;
+                float xpos = transform.position.x + i * xdistanceBetween;
+                float zpos = transform.position.z + j * zdistanceBetween;
                 pick = Random.Range(0, prefabToSpawn.Count);
-                Object instanceObj = Instantiate(prefabToSpawn[pick], new Vector3(xpos, 101.25f, zpos), Quaternion.identity);
+                Object instanceObj = Instantiate(prefabToSpawn[pick], new Vector3(xpos + xoffset, ypos, zpos +zoffset), Quaternion.identity);
             }
         }
     }
 
-    void SpawnLevel2()
+    protected virtual void SetValues()
     {
-        for (int i = 0; i < numPrefabs; i++)
-        {
-            for (int j = 0; j < numPrefabs; j++)
-            {
-                float xpos = transform.position.x + i * 7;
-                float zpos = transform.position.z + j * 7;
-                pick = Random.Range(0, prefabToSpawn.Count);
-                Object instanceObj = Instantiate(prefabToSpawn[pick], new Vector3(xpos+20 , 101.25f, zpos+200 ), Quaternion.identity);
-            }
-        }
+        xoffset = 20f;
+        zoffset = 200f;
+        ypos = 100.5f;
     }
 
 }

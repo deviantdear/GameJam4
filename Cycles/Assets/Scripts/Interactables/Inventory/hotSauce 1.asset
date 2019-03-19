@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: hotSauce 1
   m_EditorClassIdentifier: 
   name: Tapatio
-  icon: {fileID: 21300000, guid: 9534fef0051cd8343833227774a33f64, type: 3}
+  icon: {fileID: 21300000, guid: 6ee076dd888b890449980b3bffa29f6f, type: 3}
   isDefaultItem: 0
   equipSlot: 0
   mesh: {fileID: 0}

@@ -6,6 +6,18 @@ using UnityEngine.AI;
 public class ChickAnimator : CharacterAnimator
 {
 
+    protected override void Start()
+    {
+        animator = GetComponent<Animator>();
+        charCombat = PlayerManager.instance.player.GetComponent<Combat>();
+        charCombat.OnAttack += OnAttack; //Subscribes it to OnAttack Delegate
+        overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController); //Allows us to swap out clips for other clips
+        animator.runtimeAnimatorController = overrideController;
+
+        currentAttackAnimSet = defaultAttackAnimSet;
+        agent = PlayerManager.instance.navAgent;
+    }
+
     // Update is called once per frame
     protected override void Update()
     {

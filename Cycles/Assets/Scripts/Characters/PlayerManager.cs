@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.AI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -25,10 +26,12 @@ public class PlayerManager : MonoBehaviour
     public CharacterStats charStats;
     private int xpPM;
     public TextMeshProUGUI xpUI;
+    public NavMeshAgent navAgent;
 
     void Start()
     {
        charStats = player.GetComponent<CharacterStats>();
+        navAgent = player.GetComponent<NavMeshAgent>();
     }
 
     void Update()
