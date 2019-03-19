@@ -7,7 +7,7 @@ public class CharacterAnimator : MonoBehaviour
 {
     const float animSmoothTime = .1f; //variable to smooth out animations 
 
-    public AnimationClip repalceableAttackAnim;
+    public AnimationClip replaceableAttackAnim;
     public AnimationClip[] defaultAttackAnimSet; //Allows us to create an array of animations to swap through
     protected AnimationClip[] currentAttackAnimSet;
 
@@ -46,7 +46,7 @@ public class CharacterAnimator : MonoBehaviour
     {
         animator.SetTrigger("IsAttack");
         int attackIndex = Random.Range(0, currentAttackAnimSet.Length);
-        overrideController[repalceableAttackAnim.name] = currentAttackAnimSet[attackIndex];
+        overrideController[replaceableAttackAnim.name] = currentAttackAnimSet[attackIndex];
     }
 
     }

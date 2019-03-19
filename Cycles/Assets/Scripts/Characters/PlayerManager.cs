@@ -22,4 +22,9 @@ public class PlayerManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void LevelUp()
+    {
+        
+    }
 }
