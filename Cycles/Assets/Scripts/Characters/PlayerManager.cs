@@ -17,6 +17,17 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     public GameObject player;
+    public CharacterStats charStats;
+
+    void Start()
+    {
+       charStats = player.GetComponent<CharacterStats>();
+    }
+
+    void Update()
+    {
+        
+    }
 
     public void KillPlayer()
     {

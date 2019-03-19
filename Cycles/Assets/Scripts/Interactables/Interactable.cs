@@ -4,6 +4,8 @@ public class Interactable : MonoBehaviour
 {
     public float radius = 3f;
     public Transform interactionTransform;
+    protected int healthGained = 10;
+    protected int xpGained = 10;
 
     bool isFocus = false;
     Transform player;
@@ -42,14 +44,6 @@ public class Interactable : MonoBehaviour
         isFocus = false;
         player = null;
         hasInteracted = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     private void OnDrawGizmosSelected()
