@@ -21,11 +21,12 @@ public class PlayerManager : MonoBehaviour
     public GameObject player;
     public GameObject chick;
     public GameObject chicken;
-    public GameObject axes;
+    public GameObject monster;
     public GameObject egg;
     public CharacterStats charStats;
     private int xpPM;
     public TextMeshProUGUI xpUI;
+    public GameObject winText;
     public NavMeshAgent navAgent;
 
     void Start()
@@ -52,18 +53,23 @@ public class PlayerManager : MonoBehaviour
         {
             chick.SetActive(false);
             chicken.SetActive(true);
-            charStats.armor.AddModifier(5);
+            charStats.armor.AddModifier(1);
+            charStats.damage.AddModifier(5);
         }
-        else if(xpPM >= 500)
+        if(xpPM >= 500)
         {
-            axes.SetActive(true);
-            charStats.armor.AddModifier(5);
+            monster.SetActive(true);
+            chicken.SetActive(false);
+            charStats.armor.AddModifier(2);
+            charStats.damage.AddModifier(5);
         }
-        else if(xpPM >= 750) //Win Condition
+        if(xpPM >= 750) //Win Condition
         {
             //death animation
-            Instantiate(egg, chicken.transform);
-            chicken.SetActive(false);
+            egg.SetActive(true);
+            monster.SetActive(false);
+            winText.SetActive(true);
+            Time.timeScale = 0;
 
         }
     }
