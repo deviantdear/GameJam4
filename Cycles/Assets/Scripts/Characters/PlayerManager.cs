@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("ChickenCoop");
     }
 
     public void LevelUp()
@@ -51,11 +51,13 @@ public class PlayerManager : MonoBehaviour
         if(xpPM >= 100)
         {
             chick.SetActive(false);
-            chicken.SetActive(true);    
+            chicken.SetActive(true);
+            charStats.armor.AddModifier(5);
         }
         else if(xpPM >= 500)
         {
             axes.SetActive(true);
+            charStats.armor.AddModifier(5);
         }
         else if(xpPM >= 750) //Win Condition
         {
