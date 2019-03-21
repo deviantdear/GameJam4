@@ -21,6 +21,10 @@ public class EnemyAnimator : CharacterAnimator
             animator.SetTrigger("isRun");
 
         }
+        else if (charCombat.InCombat)
+        {
+            animator.SetTrigger("isAttack");
+        }
         else
         {
             animator.SetTrigger("isIdle");

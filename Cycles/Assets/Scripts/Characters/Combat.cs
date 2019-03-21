@@ -32,24 +32,30 @@ public class Combat : MonoBehaviour
 
     public void Attack(CharacterStats targetStats)
     {
-        if(attackCooldown != 0f) //Checks to see if we can attack after cooldown
-        {
-            StartCoroutine(DoDamage(targetStats, animDelay));
+        if(targetStats != null) { 
+            if(attackCooldown != 0f) //Checks to see if we can attack after cooldown
+            {
+                StartCoroutine(DoDamage(targetStats, animDelay));
 
-            OnAttack?.Invoke(); //If not subscribed to the delegate it subscribes it to the OnAttack delegate
+                OnAttack?.Invoke(); //If not subscribed to the delegate it subscribes it to the OnAttack delegate
 
-            attackCooldown = 1f / attackSpeed;
-            InCombat = true;
-            lastAttackTime = Time.time;
+                attackCooldown = 1f / attackSpeed;
+                InCombat = true;
+                lastAttackTime = Time.time;
+            }
         }
     }
 
     IEnumerator DoDamage(CharacterStats stats, float delay)
     {
-        yield return new WaitForSeconds(delay);
-        stats.TakeDamage(myStats.damage.GetValue());//finds out what the players stats are with modifiers
-        if(stats.currentHealth <= 0)
+        if (stats != null)
         {
+            yield return new WaitForSeconds(delay);
+            stats.TakeDamage(myStats.damage.GetValue());//finds out what the players stats are with modifiers
+        }
+        else { 
+            // if(stats.currentHealth <= 0)
+       
             InCombat = false;
         }
     }

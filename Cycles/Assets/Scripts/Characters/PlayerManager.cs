@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI xpUI;
     public GameObject winText;
     public NavMeshAgent navAgent;
+    public AudioClip metalMusic;
 
     void Start()
     {
@@ -54,14 +55,17 @@ public class PlayerManager : MonoBehaviour
             chick.SetActive(false);
             chicken.SetActive(true);
             charStats.armor.AddModifier(1);
-            charStats.damage.AddModifier(5);
+            charStats.damage.AddModifier(2);
         }
         if(xpPM >= 500)
         {
             monster.SetActive(true);
             chicken.SetActive(false);
             charStats.armor.AddModifier(2);
-            charStats.damage.AddModifier(5);
+            charStats.damage.AddModifier(2);
+            navAgent.speed = 20;
+            AudioManager.instance.PlaySingle(metalMusic);
+
         }
         if(xpPM >= 750) //Win Condition
         {

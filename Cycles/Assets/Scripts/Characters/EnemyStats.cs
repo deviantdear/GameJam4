@@ -9,12 +9,9 @@ public class EnemyStats : CharacterStats
 
     public override void Die()
     {
-        base.Die();
 
         PlayerManager.instance.charStats.Heal(healthGained); //references character stats in the Playermanager Health
         PlayerManager.instance.charStats.gainXP(xpGained); //references character stats in the Playermanager XP;
-
-        //Death Animation
 
         Destroy(gameObject);
     }

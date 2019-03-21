@@ -19,21 +19,22 @@ public class CharacterStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-         
-        damage -= armor.GetValue();
-        damage = Mathf.Clamp(damage, 0, int.MaxValue); //prevents negative damage values 
+         if(this != null) { 
+            damage -= armor.GetValue();
+            damage = Mathf.Clamp(damage, 0, int.MaxValue); //prevents negative damage values 
 
-        currentHealth -= damage;
-        Debug.Log(transform.name + " takes " + damage + " damage.");
+            currentHealth -= damage;
+            //Debug.Log(transform.name + " takes " + damage + " damage.");
+      
+            if(OnHealthChanged != null)
+            {
+                OnHealthChanged(maxhealth, currentHealth);
+            }
 
-        if(OnHealthChanged != null)
-        {
-            OnHealthChanged(maxhealth, currentHealth);
-        }
-
-        if(currentHealth <= 0)
-        {
-            Die();
+            if(currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
@@ -55,7 +56,7 @@ public class CharacterStats : MonoBehaviour
     public virtual void Die()
     {
         //Die in some way, should be overriden
-        Debug.Log(transform.name + " died.");
+       // Debug.Log(transform.name + " died.");
 
     }
 }

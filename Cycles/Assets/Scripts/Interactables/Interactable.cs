@@ -46,13 +46,13 @@ public class Interactable : MonoBehaviour
         hasInteracted = false;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if (interactionTransform == null)
-            interactionTransform = transform;
+    //private void OnDrawGizmosSelected()
+    //{
+    //    if (interactionTransform == null)
+    //        interactionTransform = transform;
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(interactionTransform.position, radius);
-    }
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(interactionTransform.position, radius);
+    //}
 
 }

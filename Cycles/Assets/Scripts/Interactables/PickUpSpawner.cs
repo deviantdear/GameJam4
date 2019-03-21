@@ -15,11 +15,11 @@ public class PickUpSpawner : MonoBehaviour
     protected virtual void Start()
     {
         SetValues();
-        SpawnLevel(7,7, xoffset, zoffset,ypos);
+        SpawnLevel(9,10, xoffset, zoffset,ypos);
         //2nd wave values
         xoffset = 0f;
         zoffset = 0f;
-        SpawnLevel(7,7, xoffset, zoffset, ypos);
+        SpawnLevel(7,10, xoffset, zoffset, ypos);
     }
 
     protected virtual void SpawnLevel(float _xdistance, float _zdistance, float _xoffset, float zoffset, float ypos)

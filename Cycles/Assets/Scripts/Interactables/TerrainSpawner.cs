@@ -15,8 +15,8 @@ public class TerrainSpawner : PickUpSpawner
 
     protected override void SetValues()
     {
-        xoffset = -20f;
-        zoffset = -200f;
+        xoffset = -50f;
+        zoffset = -205f;
         ypos = 90f;
     }
 
